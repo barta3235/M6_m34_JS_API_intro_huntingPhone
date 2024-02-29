@@ -32,8 +32,16 @@
         </section>
 
 
+
         <!-- search result -->
         <section>
+
+            <!-- spinner -->
+            <div id="spinner" class="text-center hidden">
+            
+                <span class="loading loading-spinner loading-lg my-40"></span>
+
+            </div>
             
             <!-- phone container -->
              <div id="phone-container" class="font-poppins grid grid-cols-1 gap-6 lg:grid-cols-3 md:grid-cols-2 mb-[50px]">
@@ -44,9 +52,48 @@
 
              <!-- show all button -->
              <div id="show-all-container" class="flex justify-center hidden">
-                <button class="btn bg-[#0D6EFD] text-[20px] font-bold text-white rounded-lg  ">Show all</button>
+                <button onclick="handleShowAll()" class="btn bg-[#0D6EFD] text-[20px] font-bold text-white rounded-lg  ">Show all</button>
              </div>
 
+        </section>
+
+
+        <!-- show detail modal -->
+        <section>
+            
+            <dialog id="show_details_modal" class="modal modal-bottom sm:modal-middle">
+              <div class="modal-box">
+
+                <div id="ekhane-boss">
+        
+                    <div class="bg-[#0D6EFD0D] rounded-lg">
+                        <figure><img class="p-[40px]" src="" alt="Shoes" /></figure>
+                    </div>
+                    
+                    <div class="mt-[25px]">
+                      <h2 class="text-[30px] font-bold mb-6"></h2>
+                      <h3><span class="text-[20px] font-semibold">Storage:</span> <span> ---- </span></h3>
+                      <h3><span class="text-[20px] font-semibold">Display Size:</span> <span> ---- </span></h3>
+                      <h3><span class="text-[20px] font-semibold">Chipset:</span> <span> ---- </span></h3>
+                      <h3><span class="text-[20px] font-semibold">Memory:</span> <span> ---- </span></h3>
+                      <h3><span class="text-[20px] font-semibold">Slug:</span> <span> ---- </span></h3>
+                      <h3><span class="text-[20px] font-semibold">Release Date:</span> <span> ---- </span></h3>
+                      <h3><span class="text-[20px] font-semibold">Brand:</span> <span> ---- </span></h3>
+                  
+                    </div>
+            
+                </div>
+
+                
+                <div class="modal-action">
+                  <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn bg-[red] text-white">Close</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+            
         </section>
 
 
