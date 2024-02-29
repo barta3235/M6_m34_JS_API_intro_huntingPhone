@@ -84,6 +84,8 @@ const toggleLoadingSPinner =(isLoading) =>{
 //handle show all
 
 const handleShowAll = () =>{
+    const templateScreen=document.getElementById('template-container');
+    templateScreen.classList.add('hidden');
     handleSearch(true);
 }
 
@@ -129,3 +131,72 @@ const showPhoneDetails= (phone) =>{
     show_details_modal.showModal() 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// for template screen
+
+
+const loadPhone2 = async ()=>{
+    const res= await fetch('https://openapi.programming-hero.com/api/phones?search=iphone');
+    const data = await res.json();
+    const phones= data['data'];
+    displayPhones2(phones);
+}
+
+const displayPhones2 = (phones) => {
+
+    const templateContainer= document.getElementById('template-container');
+
+
+ 
+     phones=phones.slice(0,6);
+
+
+     phones.forEach(phone=>{
+        
+        const phoneCard= document.createElement('div');
+        phoneCard.classList= 'card flex flex-col justify-center items-center border border-[#CFCFCF] p-[25px]';
+        phoneCard.innerHTML= `
+
+        <div>
+        
+        <div class="bg-[#0D6EFD0D] rounded-lg">
+            <figure><img class="p-[40px]" src="${phone.image}" alt="Shoes" /></figure>
+        </div>
+        
+        <div class="mt-[25px] flex flex-col justify-center items-center text-center">
+          <h2 class="card-title mb-5 text-[25px] font-bold">${phone.phone_name}</h2>
+          <p class="text-[#706F6F] text-[18px] font-normal mb-2"> iPhone versions continually evolve with improved features, enhanced performance, and sleek designs, captivating users with innovation. </p>
+          <h2 class="card-title mt-2 mb-4 text-[25px] font-bold">$999</h2>
+          
+          <div class="card-actions">
+            <button onclick="handleShowDetail('${phone.slug}')" class="btn btn-primary">Show Details</button>
+          </div>
+        </div>
+
+        </div>
+         
+         `
+        templateContainer.appendChild(phoneCard);
+     })
+}
+
+loadPhone2();
